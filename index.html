@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#163229">
+  <meta name="description" content="余量，一款带预算提醒的轻量记账应用。">
+  <title>余量 · 轻量记账</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23163229'/%3E%3Cpath d='M18 22h28M18 32h20M18 42h13' stroke='%23D8EF8F' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div>
+          <div class="brand-name">余量</div>
+          <div class="brand-caption">轻量记账</div>
+        </div>
+      </div>
+
+      <nav class="side-nav" aria-label="主导航">
+        <button class="nav-item active" type="button" data-page="dashboard">
+          <span class="nav-icon" data-icon="layout-dashboard"></span>
+          <span>总览</span>
+        </button>
+        <button class="nav-item" type="button" data-page="transactions">
+          <span class="nav-icon" data-icon="receipt-text"></span>
+          <span>账单</span>
+          <span class="nav-count" id="transactionCount">0</span>
+        </button>
+        <button class="nav-item" type="button" data-page="budgets">
+          <span class="nav-icon" data-icon="wallet-cards"></span>
+          <span>预算</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+
+      <div class="sidebar-tip">
+        <div class="tip-icon" data-icon="sparkles"></div>
+        <p>每一笔都算数，每一分都清楚。</p>
+      </div>
+
+      <button class="account-chip" type="button" id="accountChip" data-page="budgets">
+        <span class="avatar">余</span>
+        <span class="account-copy">
+          <strong>我的日常账户</strong>
+          <span>数据已本地保存</span>
+        </span>
+        <span class="account-chevron" data-icon="chevron-right"></span>
+      </button>
+    </aside>
+
+    <div class="app-body">
+      <header class="topbar">
+        <div class="mobile-brand">
+          <div class="brand-mark small" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <span>余量</span>
+        </div>
+        <div class="topbar-heading">
+          <p class="eyebrow" id="todayLabel"></p>
+          <h1 id="pageTitle">总览</h1>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-button subtle" type="button" id="searchShortcut" aria-label="搜索账单">
+            <span data-icon="search"></span>
+          </button>
+          <button class="icon-button subtle notification-button" type="button" data-open-notifications aria-label="查看预算提醒">
+            <span data-icon="bell"></span>
+            <span class="notification-dot" id="notificationDot" hidden></span>
+          </button>
+          <button class="primary-button desktop-add" type="button" data-open-add>
+            <span data-icon="plus"></span>
+            <span>记一笔</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="mainContent" class="main-content" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" aria-label="移动端导航">
+    <button class="mobile-nav-item active" type="button" data-page="dashboard">
+      <span data-icon="layout-dashboard"></span>
+      <span>总览</span>
+    </button>
+    <button class="mobile-nav-item" type="button" data-page="transactions">
+      <span data-icon="receipt-text"></span>
+      <span>账单</span>
+    </button>
+    <button class="mobile-add" type="button" data-open-add aria-label="记一笔">
+      <span data-icon="plus"></span>
+    </button>
+    <button class="mobile-nav-item" type="button" data-page="budgets">
+      <span data-icon="wallet-cards"></span>
+      <span>预算</span>
+    </button>
+  </nav>
+
+  <div id="overlayRoot"></div>
+  <div id="toastRoot" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

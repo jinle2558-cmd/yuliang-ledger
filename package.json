@@ -1,0 +1,15 @@
+{
+  "name": "yuliang-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "带预算提醒的轻量记账应用",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "ledger",
+    "budget",
+    "personal-finance"
+  ],
+  "license": "UNLICENSED"
+}
